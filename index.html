@@ -5,22 +5,27 @@
 <!--  ----------------------------------------------------------------------  -->
 
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: Please add the following <FORM> element to your page.             -->
 <!--  ----------------------------------------------------------------------  -->
 
-<form action="https://webto.stmfa.stm.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+<form action="https://testorgind6--service.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
 
-<input type=hidden name="orgid" value="00DRM000000HluC">
-<input type=hidden name="retURL" value="http://www.salesforce.com">
+<input type=hidden name='captcha_settings' value='{"keyname":"test","fallback":"true","orgId":"00D71000000077x","ts":""}'>
+<input type=hidden name="orgid" value="00D71000000077x">
+<input type=hidden name="retURL" value="http://google.com">
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
 <!--  these lines if you wish to test in debug mode.                          -->
 <!--  <input type="hidden" name="debug" value=1>                              -->
 <!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="divya.singhal@salesforce.com">                                   -->
+<!--  value="sean.tam@salesforce.com">                                        -->
 <!--  ----------------------------------------------------------------------  -->
 
 <label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
@@ -33,6 +38,7 @@
 
 <label for="description">Description</label><textarea name="description"></textarea><br>
 
+<div class="g-recaptcha" data-sitekey="6LfYBtcZAAAAABzjQWxzl9ytuAEWV8Q6yEbtjjiE"></div><br>
 <input type="submit" name="submit">
 
 </form>
